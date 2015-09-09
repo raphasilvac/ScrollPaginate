@@ -1,7 +1,19 @@
-(function (global, doc) {
+(function (sPaginate) {
+  'use strict';
+
+  if (typeof define === 'function' && define.amd) {
+    define('ScrollPaginate', [], sPaginate);
+  } else if (typeof exports !== 'undefined') {
+    exports.ScrollPaginate = sPaginate;
+  } else {
+    window.ScrollPaginate = sPaginate;
+  }
+
+}(function (global, doc) {
   'use strict';
 
   // Utils
+
   // Debouce function
   // inpired by David Walsh solution (http://davidwalsh.name/javascript-debounce-function)
   var debounce = function (func, wait) {
@@ -87,7 +99,6 @@
     this.currentPage +=1;
   }
 
-  global.ScrollPaginate = sPaginate;
+  return sPaginate;
 
-}(window, document));
-
+}(window, document)));
